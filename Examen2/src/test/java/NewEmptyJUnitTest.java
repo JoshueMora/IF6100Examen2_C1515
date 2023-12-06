@@ -44,6 +44,19 @@ public class NewEmptyJUnitTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
+                
+    @Test //Codigo -1
+    public void pruebaValorNegativo() {
+        OperacionAritmetica context = new OperacionAritmetica(new Sumar());
+        assertEquals(-1, context.procesar(-5, 10));
+    }
+        
+    @Test //Codigo -3
+    public void pruebaDivisionEntreCero() {
+        OperacionAritmetica context = new OperacionAritmetica(new Division());
+        assertEquals(-3, context.procesar(10, 0));
+    }
+
     @Test
     public void pruebaSumaBIEN() {
         OperacionAritmetica context = new OperacionAritmetica(new Sumar());
@@ -57,9 +70,9 @@ public class NewEmptyJUnitTest {
     }
     
     @Test
-    public void pruebaRestaBIEN() {
+    public void pruebaRestaBIEN() { //Codigo -2 prueba resta primer digito mayor
         OperacionAritmetica context = new OperacionAritmetica(new Resta());
-        assertEquals(16, context.procesar(20,4));
+        assertEquals(-2, context.procesar(20,4));
     }
     
     @Test
@@ -90,23 +103,5 @@ public class NewEmptyJUnitTest {
     public void pruebaDivisionMAL() {
         OperacionAritmetica context = new OperacionAritmetica(new Division());
         assertNotEquals(4, context.procesar(10,2));
-    }
-            
-    @Test //Codigo -1
-    public void pruebaValorNegativo() {
-        OperacionAritmetica context = new OperacionAritmetica(new Sumar());
-        assertEquals(-1, context.procesar(-5, 10));
-    }
-
-    @Test //Codigo -2
-    public void pruebaRestaPrimerDigitoMayor() {
-        OperacionAritmetica context = new OperacionAritmetica(new Resta());
-        assertEquals(-2, context.procesar(4, 10));
-    }
-    
-    @Test //Codigo -3
-    public void pruebaDivisionEntreCero() {
-        OperacionAritmetica context = new OperacionAritmetica(new Division());
-        assertEquals(-3, context.procesar(10, 0));
     }
 }
